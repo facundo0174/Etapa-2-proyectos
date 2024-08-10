@@ -47,6 +47,8 @@ esquina superior izquierda del objeto contenedor en este caso la variable ventan
 para el titulo "Calculadora IU" asi como botones de una ventana comun y corriente como ser el de salida, minimizacion. por lo tanto el (0,0) seria el (4,4)
 el programa obvia esto, es decir nos abstrae la idea de conocer la coordenada exacta con o sin suma, pero no todos los lenguajes lo hacen.
 '''
+#OJO NO SE PUEDE USAR .GRID Y .PACK JUNTOS
+
 subtitulo.grid(row=0,column=2) #pack lo incerta dentro del objeto ventana de manera visible
 #boton1 de prueba el resto no hace nada solo es texto
 boton1=tkinter.Button(ventana,text="Suma de 2 numeros",command=saludar)
@@ -89,5 +91,39 @@ try:
     print(f"El número ingresado como entero es: {numero_entero}")
 except ValueError:
     print("El valor ingresado no es un número válido.")
+
+------------------------------------------------------------
+
+codigo ejemplo para crear ventanas emergentes "HIJAS" del cual se le aplica el mainloop()
+
+
+import tkinter as tk
+
+def crear_ventana_emergente():
+    nueva_ventana = tk.Toplevel(app)
+    nueva_ventana.title("Ventana Emergente")
+    nueva_ventana.geometry("200x100")
+    etiqueta = tk.Label(nueva_ventana, text="¡Hola, soy una ventana emergente!")
+    etiqueta.pack()
+
+app = tk.Tk()
+app.title("Ventana Principal")
+app.geometry("300x200")
+
+boton = tk.Button(app, text="Abrir Ventana Emergente", command=crear_ventana_emergente)
+boton.pack(pady=20)
+
+app.mainloop()
+
+-- a continuacion explicacion de que realiza toplevel() segun la documentacion---
+
+La línea de código nueva_ventana = tk.Toplevel(app) crea una nueva ventana emergente en una aplicación Tkinter.
+Aquí está el desglose:
+
+tk.Toplevel(app): Esta función crea una nueva ventana hija (o emergente) que está asociada con la ventana principal app.
+La ventana emergente es independiente de la ventana principal, pero se cierra cuando la ventana principal se cierra.
+El método Toplevel se utiliza para crear ventanas adicionales en una aplicación Tkinter.
+Estas ventanas pueden contener sus propios widgets y pueden ser utilizadas para mostrar información adicional,
+formularios, diálogos, etc.
 
 """
