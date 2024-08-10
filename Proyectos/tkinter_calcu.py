@@ -11,6 +11,19 @@ def resta():
     return(a-b)
 
 def multiplicacion ():
+    ventana_multiplicacion=tkinter.Toplevel(ventana)
+    ventana_multiplicacion.title("Multiplicacion de 2 numeros")
+    ventana_multiplicacion.geometry("500x500")
+    etiqueta=tkinter.Label(ventana_multiplicacion,text="Ingrese el multiplicando: ")
+    etiqueta.grid(row=1, column=2)
+    cajatextomulti=tkinter.Entry(ventana_multiplicacion)
+    cajatextomulti.grid(row=2,column=2)
+    global num_input
+    boton_input=tkinter.Button(ventana_multiplicacion,text="Ingresar",command=intput_ui)
+    boton_input.grid(row=3, column=2)
+
+    
+
     a=int(input("ingrese el multiplicando \n"))
     b=int(input("ingrese el multiplicador \n"))
     return(a*b)
@@ -25,10 +38,15 @@ def saludar():
 
 def intput_ui():
     #asegurarse de que sean variables globales de lo contrario no modificara para utilizarce en el main
-    num1=cajatexto.get() #traigo lo que se ingreso, pero asegurarse del tipo de dato
-    #etc etc
-
-
+    aux=cajatexto.get() #traigo lo que se ingreso, pero asegurarse del tipo de dato
+    global num_input #debo colocar esto para que no me de error pylance alcance o variable no declarada
+    try:
+        num_input = int(aux)
+    except ValueError:
+        print("conversion de valores no valida.")
+#tener en cuenta que al dar error el programa de ventana multiplicacion sigue en curso, posibles acciones, abortar la misma segun una flag luego de mostrar el error
+#falta determinar el momento de peticion para multiplicando y multiplicador para poder resguardar correctamente las operaciones, a pesar de ser conmutativas
+num_input=0
 num1=0
 num2=0
 ''' la idea en este momento es utilizar estas variables globales para luego pasarlas a las funciones que retornen
@@ -72,8 +90,7 @@ cajatexto.grid(row=1,column=2)
 creacion de un boton que se "enlaza" con la caja de texto a utilizar, y a su vez recupera
 el valor ingresado para realizar algun tipo de accion despues  con ello, recordar comprobar el tipo de dato final de la recuperacion
 '''
-boton_input=tkinter.Button(ventana,text="Ingresar",command=intput_ui)
-boton_input.grid(row=2, column=2)
+
 
 
 
