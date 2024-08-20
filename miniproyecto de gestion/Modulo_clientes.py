@@ -58,26 +58,27 @@ class pedidos:
         label_descripcion.grid(row=6,column=0,pady=15)
         descripcion_entry.grid(row=7,column=1,columnspan=4,pady=15)
 
-        tkinter.Button(ventana_registro,text="Validar",height=5,width=15,command=self.confirmar_datos).grid(row=8,column=1,columnspan=4,pady=15)
+        tkinter.Button(ventana_registro,text="Nuevo pedido.",height=5,width=15,command=self.confirmar_datos).grid(row=8,column=1,columnspan=4,pady=15)
 
     def confirmar_datos(self):
-        #modificacion de variable de instancia actual --TODAS--.
+        #modificacion de variable de instancia actual --TODAS-- y agregacion de nuevo objeto a la lista.
         setter_cantidad=str(self.cantidad_entry.get())
         setter_descripcion=self.descripcion_entry.get()
         setter_importe=str(self.importe_entry.get())
         setter_adelanto=str(self.adelanto.get())
         setter_fecha=str(self.fecha_entry.get())
-        self.cantidad.set(setter_cantidad)
-        self.descripcion.set(setter_descripcion)
-        self.importe.set(setter_importe)
-        self.adelanto.set(setter_adelanto)
-        self.fecha_entrega.set(setter_fecha)
-        
-
-
-        
+        nuevo_pedido=pedidos()
+        nuevo_pedido.cantidad.set(setter_cantidad)
+        nuevo_pedido.descripcion.set(setter_descripcion)
+        nuevo_pedido.importe.set(setter_importe)
+        nuevo_pedido.adelanto.set(setter_adelanto)
+        nuevo_pedido.fecha_entrega.set(setter_fecha)
+        lista_pedidos.append(nuevo_pedido)
 
 pedido=pedidos()
+'''creacion de un objeto plantilla para acceder a metodos y crear a partir de el otros, a su ves este se REESCRIBE
+para la inicializacion de otro objeto, basicamente es una variable/objeto base/ventana/plantilla'''
+
 
 
 tkinter.Button(text="Alta",command=pedido.alta).grid(row=0,column=2)
