@@ -1,7 +1,7 @@
 import random
 
 class mascotaVirtual:
-    def __innit__(self,nombre)
+    def __innit__(self,nombre):
         self.nombre=nombre
         self.hambre=0
         self.felicidad=0
