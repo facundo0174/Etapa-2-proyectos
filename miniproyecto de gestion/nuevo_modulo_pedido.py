@@ -71,8 +71,9 @@ class pedidos:
         nuevo_pedido.adelanto.set(setter_adelanto)
         nuevo_pedido.fecha_entrega.set(setter_fecha)
         nuevo_pedido.material.set(setter_material)
+        nuevo_pedido.estado.set(setter_estado)
         self.lista.append(nuevo_pedido)
-        print(f"contenido interezante:{self.lista[0].material.get()}")
+        #print(f"contenido interezante:{self.lista[0].material.get()}") linea para comprobar el correcto asignamiento de los objetos
         ventanaAlta.destroy()
         
 
