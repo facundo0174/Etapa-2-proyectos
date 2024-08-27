@@ -14,6 +14,9 @@ class pedidos:
     def __init__(self,ventanaMain,lista):
         self.ventanaMain=ventanaMain
         self.lista=lista
+        #self.cliente
+        #self.telefono
+        #self.direccion????
         self.material=tk.StringVar(value="acrilico") #hay distintos tipos, pero debe ser acotado, acrilico/MDF(madera)/polifan/vinilo/otros varios
         self.cantidad=tk.StringVar() #se dvide en cuadrantes, cada plancha de 50x50 tiene 4
         self.descripcion=tk.StringVar() #info creativa
@@ -113,8 +116,6 @@ class main:#clase contenedora de todos los objetos, seria algo asi como la venta
         self.boton2=tk.Button(text="listar pedidos",command=self.listar)
         self.boton2.grid(row=0,column=1)
     
-    
-    
     def listar(self): #metodo que crea emergentes para listar los pedidos contenidos en la lista
         self.pagina_actual=0#variables de control para la paginacion, esta debe ser siempre 0 inicialemente
         self.pagina_max=10# maximo de pedidos por pagina, puede variar
@@ -127,6 +128,8 @@ class main:#clase contenedora de todos los objetos, seria algo asi como la venta
         self.botonSig.pack(side=tk.RIGHT,padx=10)# posicionamiento en esquinas inferiores
         self.botonAnt=ttk.Button(self.listado,text="Anterior",command=self.anterior)
         self.botonAnt.pack(side=tk.LEFT,padx=10)
+        self.botonBuscar=ttk.Button(self.listado,text="Buscar",command='''.''')
+        self.botonBuscar.pack(side=tk.LEFT,padx=10)
 
         self.mostrarLista()
 
