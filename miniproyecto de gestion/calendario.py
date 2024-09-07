@@ -1,6 +1,4 @@
 #instalar 'pip install tkcalendar' y  'pip install schedule' en una terminal nueva para que funcione el codigo
-
-
 import datetime
 import schedule
 import time
