@@ -19,9 +19,9 @@ def act_ID():
 class pedidos:
     def __init__(self,ventanaMain,lista):
         self.ventanaMain=ventanaMain
-        self.lista=lista
+        self.lista=lista#posiblemente irrelevante y despreciable por la BD
         self.ID=tk.StringVar(value=0)
-        self.cliente=tk.StringVar()
+        self.dni=tk.StringVar()
         #self.telefono
         #self.direccion 
         #confirmar a futuro
